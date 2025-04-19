@@ -109,10 +109,11 @@ lenmei233个人开发
             <p class="text-sm">作者: <span id="author">正在加载...</span></p>
             <p class="text-sm">更新日期: <span id="update-date">正在加载...</span></p>
             <p class="text-sm">维护状态: <span id="maintenance-status">正在加载...</span></p>
+            <p class="text-sm">总访问次数: <span id="finicount_views">0</span></p> 
         </div>
     </footer>
 </div>
-
+<script async src="//finicounter.eu.org/finicounter.js"></script>
 <script>
     const contentUrls = {
         chinese: 'https://proxy.092333.xyz/https://raw.githubusercontent.com/3371455651/Homework/main/chinese.txt',
@@ -157,7 +158,7 @@ lenmei233个人开发
                 document.getElementById('maintenance-status').textContent = '加载失败';
             });
     }
-
+    
     // 复制到剪切板的函数
     function copyToClipboard(contentId) {
         const content = document.getElementById(contentId).textContent;
@@ -186,5 +187,6 @@ lenmei233个人开发
     loadContent('化学', contentUrls.chemistry, 'chemistry-content');
     loadFooterInfo(contentUrls.footerInfo);
 </script>
+
 </body>
 </html>
