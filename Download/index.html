@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载页面</title>
+    <meta name="description" content="这是一个下载页面，您可以在这里下载相关文件。">
+    <meta name="robots" content="noindex"> <!-- 禁止搜索引擎索引 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #1a202c; /* 深色背景 */
+        }
+    </style>
+</head>
+<body>
+<div class="min-h-screen flex flex-col">
+    <header class="bg-gray-800 p-4">
+        <h1 class="text-3xl font-bold text-center text-white">下载页面</h1>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center">
+        <div class="bg-gray-900 p-8 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl font-semibold text-white mb-4">作业查询</h2>
+            <p class="text-gray-400 mb-6">请点击下面的按钮下载作业查询APP,它可以帮助你查询每日作业</p>
+            <a href="https://proxy.092333.xyz/https://raw.githubusercontent.com/3371455651/Homework/main/Download/app.apk" download>
+                <button class="bg-teal-500 text-white font-semibold py-2 px-4 rounded hover:bg-teal-600 transition duration-200">
+                    下载文件
+                </button>
+            </a>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 p-4 mt-0">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-sm text-gray-300">作者: <span id="author">正在加载...</span></p>
+            <p class="text-sm text-gray-300">更新日期: <span id="update-date">正在加载...</span></p>
+            <p class="text-sm text-gray-300">维护状态: <span id="maintenance-status">正在加载...</span></p>
+            <p class="text-sm text-gray-300">总访问次数: <span id="finicount_views">0</span></p> 
+        </div>
+    </footer>
+</div>
+
+<script async src="//finicounter.eu.org/finicounter.js"></script>
+<script>
+    const footerInfoUrl = 'https://proxy.092333.xyz/https://raw.githubusercontent.com/3371455651/Homework/main/footer.txt'; // 页脚信息
+
+    // 加载页脚信息
+    function loadFooterInfo(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('author').textContent = data.author;
+                document.getElementById('update-date').textContent = data.updateDate;
+                document.getElementById('maintenance-status').textContent = data.maintenanceStatus;
+            })
+            .catch(error => {
+                console.error('加载页脚信息失败:', error);
+                document.getElementById('author').textContent = '加载失败';
+                document.getElementById('update-date').textContent = '加载失败';
+                document.getElementById('maintenance-status').textContent = '加载失败';
+            });
+    }
+
+    // 加载页脚信息
+    loadFooterInfo(footerInfoUrl);
+</script>
+
+</body>
+</html>

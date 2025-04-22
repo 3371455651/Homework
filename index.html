@@ -152,12 +152,14 @@ lenmei233个人开发
         fetch("https://proxy.092333.xyz/https://raw.githubusercontent.com/3371455651/Homework/main/notification.txt")
             .then(response => response.json())
             .then(data => {
-                const textContent = date.text
-                const mode = date.mode
+                console.log(response); // 打印响应信息
+                const textContent = data.text
+                const mode = data.mode
                 showNotification(mode, textContent, 5000);
             })
             .catch(error => {
-                showNotification('错误', `加载通知内容失败`, 5000);
+                console.error(error); // 打印错误信息
+                showNotification('错误', `加载通知内容失败,错误已输出到控制台`, 5000);
             });
 
         async function loadContent(subject, url, containerId) {
