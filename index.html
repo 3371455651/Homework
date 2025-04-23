@@ -159,7 +159,7 @@ lenmei233个人开发
             .then(text => {
                 try {
                     const data = JSON.parse(text);
-                    showNotification(data.mode, data.text);
+                    showNotification(data.mode, data.text , data.time);
                 } catch (error) {
                     console.error('Error parsing JSON:', error);
                 }
