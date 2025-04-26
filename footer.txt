@@ -1,5 +1,5 @@
 {
     "author": "lenmei233",
-    "updateDate": "2025-04-24",
-    "maintenanceStatus": "正常"
+    "updateDate": "2025-04-26",
+    "maintenanceStatus": "自己开心就好"
 }
