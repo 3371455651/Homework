@@ -1,5 +1,5 @@
 {
     "author": "lenmei233",
-    "updateDate": "2025-04-28",
-    "maintenanceStatus": "有性格要继续保持"
+    "updateDate": "2025-05-11",
+    "maintenanceStatus": "随缘更新，有缘时看就更新了"
 }
