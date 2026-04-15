@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>801班级作业展示</title>
-    <meta name="description" content="这是801班级的作业展示页面，包含各科目的作业内容和分享功能。">
+    <title>901班级作业展示</title>
+    <meta name="description" content="这是901班级的作业展示页面，包含各科目的作业内容和分享功能。">
     <meta name="robots" content="noindex">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -81,13 +81,34 @@
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
+        
         .content {
             white-space: pre-wrap;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
+            color: #ffffff; 
         }
 
-        /* 隐藏滚动条但保留功能 */
+        
+        .footer-text {
+            color: #f8fafc; 
+        }
+
+        
+        .subject-title {
+            color: #ffffff; /* 纯白色 */
+            font-weight: 600;
+        }
+
+        
+        .share-button {
+            color: #60a5fa; 
+        }
+
+        .share-button:hover {
+            color: #93c5fd; 
+        }
+
+       
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -109,8 +130,9 @@
 
     <main class="flex-grow max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
         <header class="mb-10 mt-6 sm:mt-10">
-            <h1 class="text-4xl sm:text-5xl font-bold text-center tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
-                801班级作业展示
+            
+            <h1 class="text-4xl sm:text-5xl font-bold text-center tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
+                901班级作业展示
             </h1>
         </header>
 
@@ -118,8 +140,10 @@
             
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">语文</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('chinese-content', '语文')">分享</button>
+                   
+                    <h2 class="subject-title text-2xl tracking-wide">语文</h2>
+        
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('chinese-content', '语文')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="chinese-content">
                     正在同步数据...
@@ -128,8 +152,8 @@
 
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">英语</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('english-content', '英语')">分享</button>
+                    <h2 class="subject-title text-2xl tracking-wide">英语</h2>
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('english-content', '英语')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="english-content">
                     正在同步数据...
@@ -138,8 +162,8 @@
 
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">数学</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('math-content', '数学')">分享</button>
+                    <h2 class="subject-title text-2xl tracking-wide">数学</h2>
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('math-content', '数学')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="math-content">
                     正在同步数据...
@@ -148,8 +172,8 @@
 
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">地理</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('geography-content', '地理')">分享</button>
+                    <h2 class="subject-title text-2xl tracking-wide">地理</h2>
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('geography-content', '地理')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="geography-content">
                     正在同步数据...
@@ -158,8 +182,8 @@
 
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">物理</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('physics-content', '物理')">分享</button>
+                    <h2 class="subject-title text-2xl tracking-wide">物理</h2>
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('physics-content', '物理')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="physics-content">
                     正在同步数据...
@@ -168,8 +192,8 @@
 
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">历史</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('history-content', '历史')">分享</button>
+                    <h2 class="subject-title text-2xl tracking-wide">历史</h2>
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('history-content', '历史')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="history-content">
                     正在同步数据...
@@ -178,8 +202,8 @@
 
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">生物</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('biology-content', '生物')">分享</button>
+                    <h2 class="subject-title text-2xl tracking-wide">生物</h2>
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('biology-content', '生物')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="biology-content">
                     正在同步数据...
@@ -188,8 +212,8 @@
 
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">政治</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('politics-content', '政治')">分享</button>
+                    <h2 class="subject-title text-2xl tracking-wide">政治</h2>
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('politics-content', '政治')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="politics-content">
                     正在同步数据...
@@ -198,8 +222,8 @@
 
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold tracking-wide">化学</h2>
-                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 text-blue-300 hover:text-blue-200" onclick="copyToClipboard('chemistry-content', '化学')">分享</button>
+                    <h2 class="subject-title text-2xl tracking-wide">化学</h2>
+                    <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('chemistry-content', '化学')">分享</button>
                 </div>
                 <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="chemistry-content">
                     正在同步数据...
@@ -210,7 +234,8 @@
 
     <footer class="mt-8 pb-8 pt-4 w-full">
         <div class="max-w-2xl mx-auto text-center glass-panel p-6 mx-4 sm:mx-auto">
-            <div class="grid grid-cols-2 gap-4 text-sm text-white/70">
+            
+            <div class="grid grid-cols-2 gap-4 text-sm footer-text">
                 <p>作者: <span id="author" class="text-white font-medium">正在加载...</span></p>
                 <p>更新: <span id="update-date" class="text-white font-medium">正在加载...</span></p>
                 <p>状态: <span id="maintenance-status" class="text-white font-medium">正在加载...</span></p>
@@ -234,17 +259,18 @@
             footerInfo: 'https://proxy.092333.xyz/https://raw.githubusercontent.com/3371455651/Homework/main/footer.txt'
         };
 
-        // 现代化的 iOS 风格通知
+        
         function showNotification(title, message, duration = 3000) {
             const notification = document.createElement('div');
-            // 使用玻璃质感类，替代原本的死板深色背景
+            
             notification.className = 'glass-panel p-4 flex flex-col notification-enter pointer-events-auto shadow-2xl border-white/20';
+           
             notification.innerHTML = `
                 <div class="flex items-center gap-2 mb-1">
                     <div class="w-2 h-2 rounded-full bg-blue-400"></div>
-                    <h2 class="font-semibold text-white/90 text-sm tracking-wide">${title}</h2>
+                    <h2 class="font-semibold text-white text-sm tracking-wide">${title}</h2>
                 </div>
-                <p class="text-white/70 text-sm ml-4">${message}</p>
+                <p class="text-gray-200 text-sm ml-4">${message}</p>
             `;
 
             document.getElementById('notification-container').appendChild(notification);
@@ -285,7 +311,8 @@
             } catch (error) {
                 console.error(`加载 ${subject} 内容失败:`, error);
                 document.getElementById(containerId).textContent = `加载 ${subject} 失败，请检查网络。`;
-                document.getElementById(containerId).classList.add('text-red-400/80');
+                // 修复：错误提示文字颜色改为亮红色
+                document.getElementById(containerId).classList.add('text-red-300');
             }
         }
 
@@ -303,7 +330,7 @@
                 });
         }
 
-        // 重构的分享功能：抛弃原生 confirm/alert，使用现代通知
+        
         function copyToClipboard(contentId, subjectName) {
             const content = document.getElementById(contentId).textContent.trim();
             
@@ -321,8 +348,7 @@
                     showNotification('复制失败', '请手动选中内容进行复制', 3000);
                 });
         }
-
-        // 批量加载
+>
         loadContent('语文', contentUrls.chinese, 'chinese-content');
         loadContent('英语', contentUrls.english, 'english-content');
         loadContent('数学', contentUrls.math, 'math-content');
