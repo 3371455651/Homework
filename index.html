@@ -71,6 +71,34 @@
             border-radius: 16px;
         }
 
+        /* 底部导航栏玻璃特效 */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 9999px;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-btn {
+            padding: 0.6rem 2rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+
+        .nav-btn.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+        }
+
         /* 通知弹窗动画 */
         .notification-enter {
             animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -81,6 +109,16 @@
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
         
+        /* 淡入淡出动画，用于页面切换 */
+        .fade-in {
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .content {
             white-space: pre-wrap;
             line-height: 1.6;
@@ -114,8 +152,7 @@
     </style>
 </head>
 
-<body class="text-white min-h-screen flex flex-col">
-    <div class="ambient-bg">
+<body class="text-white min-h-screen flex flex-col relative pb-24"> <div class="ambient-bg">
         <div class="ambient-blob blob-1"></div>
         <div class="ambient-blob blob-2"></div>
         <div class="ambient-blob blob-3"></div>
@@ -130,16 +167,13 @@
             </h1>
         </header>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            
+        <div id="view-homework" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 fade-in">
             <div class="glass-panel p-5 flex flex-col h-full">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="subject-title text-2xl tracking-wide">语文</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('chinese-content', '语文')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="chinese-content">
-                    正在同步数据...
-                </div>
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="chinese-content">正在同步数据...</div>
             </div>
 
             <div class="glass-panel p-5 flex flex-col h-full">
@@ -147,9 +181,7 @@
                     <h2 class="subject-title text-2xl tracking-wide">英语</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('english-content', '英语')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="english-content">
-                    正在同步数据...
-                </div>
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="english-content">正在同步数据...</div>
             </div>
 
             <div class="glass-panel p-5 flex flex-col h-full">
@@ -157,9 +189,7 @@
                     <h2 class="subject-title text-2xl tracking-wide">数学</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('math-content', '数学')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="math-content">
-                    正在同步数据...
-                </div>
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="math-content">正在同步数据...</div>
             </div>
 
             <div class="glass-panel p-5 flex flex-col h-full">
@@ -167,9 +197,7 @@
                     <h2 class="subject-title text-2xl tracking-wide">地理</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('geography-content', '地理')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="geography-content">
-                    正在同步数据...
-                </div>
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="geography-content">正在同步数据...</div>
             </div>
 
             <div class="glass-panel p-5 flex flex-col h-full">
@@ -177,9 +205,7 @@
                     <h2 class="subject-title text-2xl tracking-wide">物理</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('physics-content', '物理')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="physics-content">
-                    正在同步数据...
-                </div>
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="physics-content">正在同步数据...</div>
             </div>
 
             <div class="glass-panel p-5 flex flex-col h-full">
@@ -187,9 +213,7 @@
                     <h2 class="subject-title text-2xl tracking-wide">历史</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('history-content', '历史')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="history-content">
-                    正在同步数据...
-                </div>
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="history-content">正在同步数据...</div>
             </div>
 
             <div class="glass-panel p-5 flex flex-col h-full">
@@ -197,9 +221,7 @@
                     <h2 class="subject-title text-2xl tracking-wide">生物</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('biology-content', '生物')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="biology-content">
-                    正在同步数据...
-                </div>
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="biology-content">正在同步数据...</div>
             </div>
 
             <div class="glass-panel p-5 flex flex-col h-full">
@@ -207,9 +229,7 @@
                     <h2 class="subject-title text-2xl tracking-wide">政治</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('politics-content', '政治')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="politics-content">
-                    正在同步数据...
-                </div>
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="politics-content">正在同步数据...</div>
             </div>
 
             <div class="glass-panel p-5 flex flex-col h-full">
@@ -217,14 +237,55 @@
                     <h2 class="subject-title text-2xl tracking-wide">化学</h2>
                     <button class="text-sm font-medium bg-white/10 hover:bg-white/20 active:bg-white/30 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-200 share-button" onclick="copyToClipboard('chemistry-content', '化学')">分享</button>
                 </div>
-                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="chemistry-content">
-                    正在同步数据...
+                <div class="glass-inner p-4 mb-2 content flex-grow overflow-y-auto max-h-64 hide-scrollbar text-sm" id="chemistry-content">正在同步数据...</div>
+            </div>
+        </div>
+
+        <div id="view-other" class="hidden grid-cols-1 md:grid-cols-2 gap-6 fade-in max-w-4xl mx-auto">
+            
+            <div class="glass-panel p-6 flex flex-col items-center justify-center text-center">
+                <h2 class="subject-title text-2xl mb-2">今天人品</h2>
+                <p class="text-gray-300 text-sm mb-4">测一测今天的学习运势吧</p>
+                <div class="glass-inner w-full py-8 mb-4">
+                    <span id="luck-score" class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">?</span>
+                </div>
+                <button onclick="rollLuck()" class="w-full bg-white/10 hover:bg-white/20 py-3 rounded-xl backdrop-blur-md transition-all font-medium">测一测</button>
+            </div>
+
+            <div class="glass-panel p-6 flex flex-col items-center justify-center text-center">
+                <h2 class="subject-title text-2xl mb-2">学习打卡</h2>
+                <p class="text-gray-300 text-sm mb-4">记录你的努力轨迹</p>
+                <div class="glass-inner w-full py-6 mb-4 flex flex-col gap-2">
+                    <span class="text-gray-300">已累计打卡</span>
+                    <span class="text-5xl font-bold text-green-400"><span id="checkin-days">0</span><span class="text-lg text-gray-300 font-normal ml-1">天</span></span>
+                </div>
+                <button id="checkin-btn" onclick="doCheckin()" class="w-full bg-blue-500/20 hover:bg-blue-500/40 text-blue-200 py-3 rounded-xl backdrop-blur-md transition-all font-medium border border-blue-500/30">今日打卡</button>
+            </div>
+
+            <div class="glass-panel p-6 md:col-span-2 flex flex-col">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="subject-title text-2xl">随机先做啥</h2>
+                    <button onclick="pickRandomHomework()" class="text-sm font-medium bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-all">换一个</button>
+                </div>
+                <div class="glass-inner p-6 flex-grow flex flex-col items-center justify-center text-center min-h-[200px]">
+                    <h3 id="random-subject-name" class="text-2xl font-bold mb-4 text-purple-300">点击右上角抽取</h3>
+                    <div id="random-subject-content" class="content text-sm text-left w-full overflow-y-auto max-h-48 hide-scrollbar text-gray-200">
+                        不知道该从哪一科开始？让命运来决定吧！
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
 
-    <footer class="mt-8 pb-8 pt-4 w-full">
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <nav class="glass-nav">
+            <button onclick="switchTab('homework')" id="tab-homework" class="nav-btn active">作业</button>
+            <button onclick="switchTab('other')" id="tab-other" class="nav-btn">其他</button>
+        </nav>
+    </div>
+
+    <footer class="mt-4 pb-8 pt-4 w-full">
         <div class="max-w-2xl mx-auto text-center glass-panel p-6 mx-4 sm:mx-auto">
             <div class="grid grid-cols-2 gap-4 text-sm footer-text">
                 <p>作者: <span id="author" class="text-white font-medium">正在加载...</span></p>
@@ -237,7 +298,7 @@
 
     <script async src="//finicounter.eu.org/finicounter.js"></script>
     <script>
-        // 改为从本地相对路径读取文件
+        // --- 核心网络与数据代码 (保持原样) ---
         const contentUrls = {
             chinese: './chinese.txt',
             english: './english.txt',
@@ -252,10 +313,8 @@
             notification: './notification.txt'
         };
 
-        // 添加缓存破坏参数
         const cacheBuster = () => `?_t=${Date.now()}`;
         
-        // 添加强制刷新按钮的功能
         function addForceRefreshButton() {
             const notificationContainer = document.getElementById('notification-container');
             const refreshBtn = document.createElement('button');
@@ -269,7 +328,6 @@
             refreshBtn.onclick = forceRefreshAll;
             notificationContainer.appendChild(refreshBtn);
             
-            // 5秒后自动移除
             setTimeout(() => {
                 if (refreshBtn.parentNode) {
                     refreshBtn.style.opacity = '0';
@@ -303,7 +361,6 @@
             }
         }
 
-        // 修改 fetch 请求添加缓存控制
         async function fetchLocalFile(url) {
             try {
                 const response = await fetch(url + cacheBuster(), {
@@ -321,7 +378,6 @@
             }
         }
 
-        // 获取通知
         fetchLocalFile(contentUrls.notification)
             .then(response => response.text())
             .then(text => {
@@ -334,7 +390,6 @@
             })
             .catch(error => console.error('加载通知失败:', error));
 
-        // 异步加载各科内容
         async function loadContent(subject, url, containerId) {
             try {
                 const response = await fetchLocalFile(url);
@@ -347,7 +402,6 @@
             }
         }
 
-        // 加载页脚信息
         async function loadFooterInfo(url) {
             try {
                 const response = await fetchLocalFile(url);
@@ -356,7 +410,6 @@
                 document.getElementById('update-date').textContent = data.updateDate || '未知';
                 document.getElementById('maintenance-status').textContent = data.maintenanceStatus || '未知';
                 
-                // 检查是否有新版本
                 if (data.updateDate) {
                     const lastUpdate = localStorage.getItem('lastFooterUpdate');
                     if (lastUpdate && lastUpdate !== data.updateDate) {
@@ -372,26 +425,16 @@
             }
         }
 
-        // 强制刷新所有数据
         async function forceRefreshAll() {
             showNotification('正在刷新', '刷新本地文件数据...', 2000);
             
-            // 清空所有内容
-            document.getElementById('chinese-content').textContent = '正在刷新...';
-            document.getElementById('english-content').textContent = '正在刷新...';
-            document.getElementById('math-content').textContent = '正在刷新...';
-            document.getElementById('geography-content').textContent = '正在刷新...';
-            document.getElementById('physics-content').textContent = '正在刷新...';
-            document.getElementById('history-content').textContent = '正在刷新...';
-            document.getElementById('biology-content').textContent = '正在刷新...';
-            document.getElementById('politics-content').textContent = '正在刷新...';
-            document.getElementById('chemistry-content').textContent = '正在刷新...';
+            const ids = ['chinese', 'english', 'math', 'geography', 'physics', 'history', 'biology', 'politics', 'chemistry'];
+            ids.forEach(id => document.getElementById(`${id}-content`).textContent = '正在刷新...');
             
             document.getElementById('author').textContent = '刷新中...';
             document.getElementById('update-date').textContent = '刷新中...';
             document.getElementById('maintenance-status').textContent = '刷新中...';
             
-            // 重新加载所有数据
             await Promise.all([
                 loadContent('语文', contentUrls.chinese, 'chinese-content'),
                 loadContent('英语', contentUrls.english, 'english-content'),
@@ -410,28 +453,135 @@
         
         function copyToClipboard(contentId, subjectName) {
             const content = document.getElementById(contentId).textContent.trim();
-            
             if(content.includes('正在同步数据') || content.includes('加载失败') || content.includes('正在刷新')) {
                 showNotification('分享失败', '数据未加载完成，请稍后再试', 2000);
                 return;
             }
-
             navigator.clipboard.writeText(`【${subjectName}作业】\n${content}\n\n来自: 901班级作业展示`)
-                .then(() => {
-                    showNotification('复制成功', `${subjectName}作业已复制到剪贴板，快去分享吧！`, 2500);
-                })
+                .then(() => showNotification('复制成功', `${subjectName}作业已复制到剪贴板，快去分享吧！`, 2500))
                 .catch(err => {
                     console.error('复制失败:', err);
                     showNotification('复制失败', '请手动选中内容进行复制', 3000);
                 });
         }
 
-        // 页面加载时显示强制刷新按钮
+        // --- 新增功能：导航栏切换逻辑 ---
+        function switchTab(tabName) {
+            const viewHomework = document.getElementById('view-homework');
+            const viewOther = document.getElementById('view-other');
+            const tabHomework = document.getElementById('tab-homework');
+            const tabOther = document.getElementById('tab-other');
+
+            if (tabName === 'homework') {
+                viewHomework.classList.remove('hidden');
+                viewHomework.classList.add('grid');
+                viewOther.classList.add('hidden');
+                viewOther.classList.remove('grid');
+                
+                tabHomework.classList.add('active');
+                tabOther.classList.remove('active');
+            } else {
+                viewHomework.classList.add('hidden');
+                viewHomework.classList.remove('grid');
+                viewOther.classList.remove('hidden');
+                viewOther.classList.add('grid');
+                
+                tabOther.classList.add('active');
+                tabHomework.classList.remove('active');
+            }
+        }
+
+        // --- 新增功能：今天人品 ---
+        function rollLuck() {
+            const scoreElement = document.getElementById('luck-score');
+            // 添加一个滚动的动画效果
+            let counter = 0;
+            let interval = setInterval(() => {
+                scoreElement.textContent = Math.floor(Math.random() * 101);
+                counter++;
+                if(counter > 15) {
+                    clearInterval(interval);
+                    const finalScore = Math.floor(Math.random() * 101);
+                    scoreElement.textContent = finalScore;
+                    if(finalScore >= 90) showNotification('运气爆棚', '今天做题一定顺风顺水！', 2000);
+                    else if(finalScore <= 20) showNotification('稳扎稳打', '运气虽一般，但实力更重要！', 2000);
+                }
+            }, 50);
+        }
+
+        // --- 新增功能：打卡逻辑 ---
+        function initCheckin() {
+            const days = localStorage.getItem('studyCheckinDays') || 0;
+            const lastDate = localStorage.getItem('lastCheckinDate');
+            const today = new Date().toDateString();
+            
+            document.getElementById('checkin-days').textContent = days;
+            
+            const btn = document.getElementById('checkin-btn');
+            if (lastDate === today) {
+                btn.textContent = '今日已打卡';
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+                btn.disabled = true;
+            }
+        }
+
+        function doCheckin() {
+            const today = new Date().toDateString();
+            const lastDate = localStorage.getItem('lastCheckinDate');
+            
+            if (lastDate !== today) {
+                let days = parseInt(localStorage.getItem('studyCheckinDays') || 0);
+                days++;
+                localStorage.setItem('studyCheckinDays', days);
+                localStorage.setItem('lastCheckinDate', today);
+                
+                document.getElementById('checkin-days').textContent = days;
+                
+                const btn = document.getElementById('checkin-btn');
+                btn.textContent = '今日已打卡';
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+                btn.disabled = true;
+                
+                showNotification('打卡成功', `你已经累计打卡 ${days} 天，继续保持！`, 3000);
+            }
+        }
+
+        // --- 新增功能：随机作业 ---
+        const subjectsList = [
+            { name: '语文', id: 'chinese-content' },
+            { name: '英语', id: 'english-content' },
+            { name: '数学', id: 'math-content' },
+            { name: '地理', id: 'geography-content' },
+            { name: '物理', id: 'physics-content' },
+            { name: '历史', id: 'history-content' },
+            { name: '生物', id: 'biology-content' },
+            { name: '政治', id: 'politics-content' },
+            { name: '化学', id: 'chemistry-content' }
+        ];
+
+        function pickRandomHomework() {
+            const randomIndex = Math.floor(Math.random() * subjectsList.length);
+            const subject = subjectsList[randomIndex];
+            
+            // 实时读取当前作业视图中的内容
+            let content = document.getElementById(subject.id).textContent;
+            
+            // 如果内容为空或正在加载，给出提示
+            if (!content || content.includes('正在同步') || content.includes('加载失败')) {
+                content = "内容尚未加载，请先在“作业”页面确认该科目内容已更新。";
+            }
+
+            document.getElementById('random-subject-name').textContent = `👉 先做【${subject.name}】`;
+            document.getElementById('random-subject-content').textContent = content;
+        }
+
+        // 页面加载完成初始化
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(addForceRefreshButton, 1000);
+            initCheckin(); // 初始化打卡
         });
 
-        // 批量加载
+        // 批量加载数据
         loadContent('语文', contentUrls.chinese, 'chinese-content');
         loadContent('英语', contentUrls.english, 'english-content');
         loadContent('数学', contentUrls.math, 'math-content');
