@@ -311,7 +311,6 @@
             } catch (error) {
                 console.error(`加载 ${subject} 内容失败:`, error);
                 document.getElementById(containerId).textContent = `加载 ${subject} 失败，请检查网络。`;
-                // 修复：错误提示文字颜色改为亮红色
                 document.getElementById(containerId).classList.add('text-red-300');
             }
         }
@@ -348,7 +347,8 @@
                     showNotification('复制失败', '请手动选中内容进行复制', 3000);
                 });
         }
->
+
+        
         loadContent('语文', contentUrls.chinese, 'chinese-content');
         loadContent('英语', contentUrls.english, 'english-content');
         loadContent('数学', contentUrls.math, 'math-content');
